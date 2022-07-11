@@ -1,5 +1,8 @@
 package kvp.hhlin.minifullfillment.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Sku {
 
     private static final int MAX_NAME_LENGTH = 20;
@@ -9,6 +12,8 @@ public class Sku {
     private String name;
 
     private String status;
+
+    private Set<Barcode> barcode = new HashSet<>();
 
     private boolean isValidLength(String name) {
         return name.length() <= MAX_NAME_LENGTH;
@@ -28,6 +33,10 @@ public class Sku {
         if (isEmpty(code)) {
             throw new IllegalArgumentException("코드는 빈 값일 수 없습니다.");
         }
+    }
+
+    public void addBarcode(String barcode) {
+        this.barcode.add(Barcode.of(barcode));
     }
 
     public String getCode() {
@@ -52,5 +61,13 @@ public class Sku {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Set<Barcode> getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(Set<Barcode> barcode) {
+        this.barcode = barcode;
     }
 }

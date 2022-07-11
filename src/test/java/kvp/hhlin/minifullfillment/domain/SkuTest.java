@@ -46,6 +46,11 @@ public class SkuTest {
         assertThrows(IllegalArgumentException.class, () -> {
             sku.isValidName(sku.getName());
         });
+    }
 
+    @Test
+    void 바코드를_등록할_수_있다() {
+        sku.addBarcode("00110011");
+        assertTrue(sku.getBarcode().size() == 1);
     }
 }

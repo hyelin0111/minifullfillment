@@ -12,28 +12,27 @@ public class BarcodeTest {
 
     @BeforeEach
     void Barcode생성() {
-        barcode = new Barcode();
+        barcode = new Barcode("");
     }
 
     @Test
     void Barcode는_빈값이_아니다() {
-        barcode.setCode("");
         assertThrows(IllegalArgumentException.class, () -> {
-            barcode.isValidCode(barcode.getCode());
+            barcode.isValidCode(barcode.getBarcode());
         });
 
-        barcode.setCode("000111010001");
-        assertNotNull(barcode.getCode());
+        barcode.setBarcode("000111010001");
+        assertNotNull(barcode.getBarcode());
     }
 
     @Test
     void Barcode는_최대_20자이다() {
-        barcode.setCode("01234567890123456789");
-        assertTrue(barcode.getCode().length() <= 20);
+        barcode.setBarcode("01234567890123456789");
+        assertTrue(barcode.getBarcode().length() <= 20);
 
-        barcode.setCode("012345678901234567890");
+        barcode.setBarcode("012345678901234567890");
         assertThrows(IllegalArgumentException.class, () -> {
-            barcode.isValidCode(barcode.getCode());
+            barcode.isValidCode(barcode.getBarcode());
         });
     }
 }
