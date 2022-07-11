@@ -12,7 +12,7 @@ public class SkuTest {
 
     @BeforeEach
     void Sku생성() {
-        sku = new Sku();
+        sku = new Sku("s123", "초콜릿");
     }
 
     @Test
@@ -52,5 +52,10 @@ public class SkuTest {
     void 바코드를_등록할_수_있다() {
         sku.addBarcode("00110011");
         assertTrue(sku.getBarcode().size() == 1);
+    }
+
+    @Test
+    void Sku의_초기상태는_런칭_예정이다() {
+        assertTrue(sku.getStatus().equals("런칭 예정"));
     }
 }

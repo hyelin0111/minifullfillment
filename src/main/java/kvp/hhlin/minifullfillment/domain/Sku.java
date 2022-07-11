@@ -15,6 +15,12 @@ public class Sku {
 
     private Set<Barcode> barcode = new HashSet<>();
 
+    Sku(String code, String name) {
+        this.code = code;
+        this.name = name;
+        this.status = SkuStatus.valueOf("READY").getStatus();
+    }
+
     private boolean isValidLength(String name) {
         return name.length() <= MAX_NAME_LENGTH;
     }
