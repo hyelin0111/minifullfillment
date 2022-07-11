@@ -13,12 +13,13 @@ public class Sku {
 
     private String status;
 
-    private Set<Barcode> barcode = new HashSet<>();
+    private Set<Barcode> barcode;
 
     Sku(String code, String name) {
         this.code = code;
         this.name = name;
         this.status = SkuStatus.valueOf("READY").getStatus();
+        this.barcode = new HashSet<>();
     }
 
     private boolean isValidLength(String name) {

@@ -2,24 +2,24 @@ package kvp.hhlin.minifullfillment.domain;
 
 public class Center {
 
-    private String code;
+    private String id;
 
     private String name;
 
     private String status;
 
-    Center(String code, String name) {
-        this.code = code;
+    Center(String id, String name) {
+        this.id = id;
         this.name = name;
         this.status = CenterStatus.valueOf("READY").getStatus();
     }
 
-    public String getCode() {
-        return code;
+    public String getId() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
