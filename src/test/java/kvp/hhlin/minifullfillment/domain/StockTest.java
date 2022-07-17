@@ -16,9 +16,8 @@ public class StockTest {
 
     @Test
     void 재고는_0보다_작을_수_없다() {
-        stock.subtractQuantity(Long.valueOf(2));
         assertThrows(IllegalArgumentException.class, () -> {
-            stock.isValidStatus();
+            stock.subtractQuantity(Long.valueOf(2));
         });
     }
 }

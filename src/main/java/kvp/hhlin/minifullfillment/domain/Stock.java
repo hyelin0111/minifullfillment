@@ -18,7 +18,7 @@ public class Stock {
         return this.quantity >= 0L;
     }
 
-    public void isValidStatus() {
+    private void isValidStatus() {
         if (!isValidQuantity()) {
             throw new IllegalArgumentException("재고는 0보다 작을 수 없습니다.");
         }
@@ -30,6 +30,7 @@ public class Stock {
 
     public void subtractQuantity(Long quantity) {
         this.quantity -= quantity;
+        isValidStatus();
     }
 
     public Long getQuantity() {
