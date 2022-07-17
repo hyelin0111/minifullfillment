@@ -16,6 +16,6 @@ public class CenterTest {
 
     @Test
     void Center의_초기상태는_오픈_준비중이다() {
-        assertTrue(center.getStatus().equals("오픈 준비중"));
+        assertTrue(center.getStatus().equals(CenterStatus.READY));
     }
 }
