@@ -15,7 +15,7 @@ public class Sku {
 
     private Set<Barcode> barcodes;
 
-    Sku(String code, String name) {
+    public Sku(String code, String name) {
         isValidCode(code);
         isValidName(name);
         this.code = code;
