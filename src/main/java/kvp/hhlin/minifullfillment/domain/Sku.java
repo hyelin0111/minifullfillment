@@ -1,19 +1,31 @@
 package kvp.hhlin.minifullfillment.domain;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Sku {
 
     private static final int MAX_NAME_LENGTH = 20;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String code;
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private SkuStatus status;
 
+    @OneToMany
+    @JoinColumn(name = "sku_id")
     private Set<Barcode> barcodes;
+
+    public Sku() {
+    }
 
     public Sku(String code, String name) {
         isValidCode(code);

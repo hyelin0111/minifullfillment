@@ -1,12 +1,25 @@
 package kvp.hhlin.minifullfillment.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Barcode {
 
     private static final int MAX_NAME_LENGTH = 20;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String skuCode;
 
     private String barcode;
+
+    public Barcode() {
+    }
 
     private Barcode(String skuCode, String barcode) {
         validateCode(barcode);
