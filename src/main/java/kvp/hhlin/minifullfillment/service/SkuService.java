@@ -14,6 +14,6 @@ public class SkuService {
     }
 
     public void save(String code, String name) {
-        skuRepository.save(new Sku(code, name));
+        skuRepository.save(Sku.of(code, name));
     }
 }

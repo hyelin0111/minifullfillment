@@ -26,7 +26,7 @@ public class SkuController {
     }
 
     @GetMapping
-    public List<Sku> getSkus() {
+    public List<Sku> findAll() {
         return skuRepository.findAll();
     }
 }

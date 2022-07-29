@@ -27,8 +27,8 @@ public class Sku {
     public Sku() {
     }
 
-    public Sku(String code, String name) {
-        isValidCode(code);
+    private Sku(String code, String name) {
+        validateCode(code);
         isValidName(name);
         this.code = code;
         this.name = name;
@@ -36,19 +36,24 @@ public class Sku {
         this.barcodes = new HashSet<>();
     }
 
-    public void isValidCode(String code) {
+    public static Sku of(String code, String name) {
+        return new Sku(code, name);
+    }
+
+
+    public void validateCode(String code) {
         if (code.isBlank()) {
             throw new IllegalArgumentException("코드는 빈 값일 수 없습니다.");
         }
     }
 
     public void isValidName(String name) {
-        if (!isValidLength(name) || name.isBlank()) {
+        if (!validateLength(name) || name.isBlank()) {
             throw new IllegalArgumentException("이름은 빈 값일 수 없고 최대 20자입니다.");
         }
     }
 
-    private boolean isValidLength(String name) {
+    private boolean validateLength(String name) {
         return name.length() <= MAX_NAME_LENGTH;
     }
 

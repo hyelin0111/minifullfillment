@@ -12,7 +12,7 @@ public class SkuTest {
 
     @BeforeEach
     void Sku생성() {
-        sku = new Sku("s123", "초콜릿");
+        sku = Sku.of("s123", "초콜릿");
     }
 
     @Test
@@ -20,7 +20,7 @@ public class SkuTest {
         assertNotNull(sku.getCode());
 
         assertThrows(IllegalArgumentException.class, () -> {
-            sku = new Sku("", "초콜릿");
+            sku = Sku.of("", "초콜릿");
         });
     }
 
@@ -29,17 +29,17 @@ public class SkuTest {
         assertNotNull(sku.getName());
 
         assertThrows(IllegalArgumentException.class, () -> {
-            sku = new Sku("s123", "");
+            sku = Sku.of("s123", "");
         });
     }
 
     @Test
     void 이름은_최대_20자이다() {
-        sku = new Sku("s123", "01234567890123456789");
+        sku = Sku.of("s123", "01234567890123456789");
         assertTrue(sku.getName().length() == 20);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            sku = new Sku("s123", "012345678901234567890");
+            sku = Sku.of("s123", "012345678901234567890");
         });
     }
 
