@@ -11,7 +11,7 @@ public class CenterTest {
 
     @BeforeEach
     void Center생성() {
-        center = new Center("a1234", "김포점");
+        center = Center.of("김포점");
     }
 
     @Test

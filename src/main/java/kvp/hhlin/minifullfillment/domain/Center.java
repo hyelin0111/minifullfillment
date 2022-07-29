@@ -2,24 +2,18 @@ package kvp.hhlin.minifullfillment.domain;
 
 public class Center {
 
-    private String id;
+    private Long id;
 
     private String name;
 
     private CenterStatus status;
 
-    Center(String id, String name) {
-        this.id = id;
+    private Center(String name) {
         this.name = name;
         this.status = CenterStatus.READY;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
+    public static Center of(String name) {
+        return new Center(name);
     }
 
     public CenterStatus getStatus() {
