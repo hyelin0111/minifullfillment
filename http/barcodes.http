@@ -1,0 +1,11 @@
+### barcode 조회
+GET http://localhost:8080/api/barcodes
+
+### barcode 저장
+POST http://localhost:8080/api/barcodes
+Content-Type: application/json
+
+{
+  "skuCode": "1111",
+  "barcode": "0100100111001"
+}
