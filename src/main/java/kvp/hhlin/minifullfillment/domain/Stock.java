@@ -1,21 +1,34 @@
 package kvp.hhlin.minifullfillment.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Stock {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String centerId;
 
-    private String skuCode;
+    private String skuId;
 
     private Long quantity;
 
-    private Stock(String centerId, String skuCode) {
+    public Stock() {
+    }
+
+    private Stock(String centerId, String skuId) {
         this.centerId = centerId;
-        this.skuCode = skuCode;
+        this.skuId = skuId;
         this.quantity = 0L;
     }
 
-    public static Stock of(String centerId, String skuCode) {
-        return new Stock(centerId, skuCode);
+    public static Stock of(String centerId, String skuId) {
+        return new Stock(centerId, skuId);
     }
 
     private boolean isValidQuantity() {
