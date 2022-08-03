@@ -11,7 +11,7 @@ public class StockTest {
 
     @BeforeEach
     void Stock생성() {
-        stock = new Stock("A1233", "P8822");
+        stock = Stock.of("A1233", "P8822");
     }
 
     @Test

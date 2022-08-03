@@ -1,0 +1,11 @@
+### sku 조회
+GET http://localhost:8080/api/skus
+
+### sku 저장
+POST http://localhost:8080/api/skus
+Content-Type: application/json
+
+{
+  "code": "1111",
+  "name": "초콜렛"
+}

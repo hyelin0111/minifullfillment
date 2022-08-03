@@ -12,7 +12,7 @@ public class BarcodeTest {
 
     @BeforeEach
     void Barcode생성() {
-        barcode = new Barcode("111", "01234567890123456789");
+        barcode = Barcode.of("111", "01234567890123456789");
     }
 
     @Test
@@ -20,7 +20,7 @@ public class BarcodeTest {
         assertNotNull(barcode.getBarcode());
 
         assertThrows(IllegalArgumentException.class, () -> {
-            barcode = new Barcode("111", "");
+            barcode = Barcode.of("111", "");
         });
     }
 
@@ -29,7 +29,7 @@ public class BarcodeTest {
         assertTrue(barcode.getBarcode().length() == 20);
 
         assertThrows(IllegalArgumentException.class, () -> {
-            barcode = new Barcode("111", "012345678901234567890");
+            barcode = Barcode.of("111", "012345678901234567890");
         });
     }
 }
